@@ -1,9 +1,9 @@
-
-
-use std::io;//ues 导入包
-
-use rand::{ Rng};
 use std::cmp::Ordering;
+use std::io;
+
+use rand::Rng;
+
+//ues 导入包
 
 fn main() {
     println!("you input string is {} ", guess_num());
@@ -26,15 +26,15 @@ fn guess_num() -> u32 {
     let secret_number = rand::thread_rng().gen_range(1, 101);
 
     //转换字符串为数字
-    let guess: u32  = guess.trim().parse().expect("转转失败");
+    let guess: u32 = guess.trim().parse().expect("转转失败");
 
     //switch case 类似
     match guess.cmp(&secret_number) {
         Ordering::Less => println!("small"),
-        Ordering::Equal => {println!("相等")},
-        Ordering::Greater => {println!("大于")}
+        Ordering::Equal => { println!("相等") }
+        Ordering::Greater => { println!("大于") }
     }
-    println!("{}",secret_number);
+    println!("{}", secret_number);
 
     return guess;
 }
